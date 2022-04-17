@@ -19,7 +19,9 @@ const Service = ({ service }) => {
               <p>Price: ${price}</p>
             </Card.Text>
             <Link to="/checkout">
-              <Button variant="primary">Check Out</Button>
+              <Button variant="primary" className="w-100">
+                Check Out
+              </Button>
             </Link>
           </Card.Body>
         </Card>
