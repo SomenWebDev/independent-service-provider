@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Card, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Service = ({ service }) => {
   const { name, price, description, img } = service;
@@ -7,16 +8,19 @@ const Service = ({ service }) => {
     <div className="mt-5">
       <Col>
         <Card
-          style={{ width: "350px", height: "450px" }}
-          className="shadow-lg mb-5 bg-body rounded"
+          style={{ height: "450px" }}
+          // className="shadow-lg mb-5 bg-body rounded"
         >
-          <Card.Img variant="top" src={img} className="w-100" />
+          <Card.Img variant="top" src={img} />
           <Card.Body>
             <Card.Title>{name}</Card.Title>
             <Card.Text>
               <p className="pt-2">{description}</p>
+              <p>Price: ${price}</p>
             </Card.Text>
-            <Button variant="primary">Check Out</Button>
+            <Link to="/checkout">
+              <Button variant="primary">Check Out</Button>
+            </Link>
           </Card.Body>
         </Card>
       </Col>
