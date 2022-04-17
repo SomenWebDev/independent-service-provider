@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "name": "Cosmetic Dentistry",
+        "price": "650",
+        "description": "Are You looking for a root canal or cosmetic restoration?I am here for you.",
+        "img": "https://i.ibb.co/vYZ3Q4R/Cosmetic-Dentistry.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Tooth Implant",
+        "price": "1000",
+        "description": "No matter the tooth, I am happy to show you how dental implants can benefit you..",
+        "img": "https://i.ibb.co/wB2LRSD/Oral-Surgery.jpg"
+    },
+    {
+        "id": 3,
+        "name": "General Dentistry",
+        "price": "150",
+        "description": "From pediatric dental care to dentures, I can care for your whole family..",
+        "img": "https://i.ibb.co/FXgvPFG/Periodental-treatment.jpg"
+    }
+   
+]
