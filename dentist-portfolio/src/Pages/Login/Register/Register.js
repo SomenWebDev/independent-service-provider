@@ -1,31 +1,57 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "./../../../firebase.init";
+import { sendEmailVerification } from "firebase/auth";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Register = () => {
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+  const nameRef = useRef("");
   const emailRef = useRef("");
   const passwordRef = useRef("");
-  const [agree, setAgree] = useState(false);
 
   const navigate = useNavigate();
-  const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: "true" });
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
 
-  const handleRegister = (event) => {
+  const navigateLogin = () => {
+    navigate("/login");
+  };
+
+  if (user) {
+    navigate(from, { replace: true });
+  }
+
+  if (loading) {
+    return <p>loading....</p>;
+  }
+  if (error) {
+    console.log("invalid email password");
+  }
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    const name = nameRef.current.value;
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    createUserWithEmailAndPassword(email, password);
-    navigate("/home");
+
+    await createUserWithEmailAndPassword(email, password);
+
+    await sendEmailVerification();
+    alert("send email");
   };
 
   return (
-    <div className="container w-25 mx-auto mt-5">
-      <Form onSubmit={handleRegister}>
+    <div className="container w-50 mx-auto mt-5">
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          <Form.Control ref={nameRef} type="text" placeholder="Your name" />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Control
             ref={emailRef}
             type="email"
@@ -35,7 +61,6 @@ const Register = () => {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
           <Form.Control
             ref={passwordRef}
             type="password"
@@ -43,24 +68,23 @@ const Register = () => {
             required
           />
         </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check
-            onClick={() => setAgree(!agree)}
-            type="checkbox"
-            label="Accept terms and condition"
-          />
-        </Form.Group>
-        <Button disabled={!agree} variant="primary" type="submit">
-          Register
-        </Button>
-        <p>
-          Already have an account?
-          <Link to="/login" className="text-decoration-none">
-            Login
-          </Link>
-        </p>
+        <div className="text-center">
+          <Button variant="primary" type="submit" className="w-50">
+            Register
+          </Button>
+        </div>
       </Form>
+      <p className="text-center mt-2">
+        Already have an account?
+        <Link
+          to="/login"
+          onClick={navigateLogin}
+          className="text-decoration-none"
+        >
+          Login
+        </Link>
+      </p>
+      <SocialLogin></SocialLogin>
     </div>
   );
 };
