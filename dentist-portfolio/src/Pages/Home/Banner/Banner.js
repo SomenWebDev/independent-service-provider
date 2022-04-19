@@ -9,16 +9,16 @@ const Banner = () => {
         <Carousel.Item>
           <img className="d-block w-100" src={banner1} alt="First slide" />
           <Carousel.Caption className="d-flex flex-column align-items-center justify-content-center h-100 text-dark fw-bold">
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>Say Everything With Your smile</h3>
+            <p>I am a friendly dentist with 12 years experience.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img className="d-block w-100" src={banner2} alt="Second slide" />
 
           <Carousel.Caption className="d-flex flex-column align-items-center justify-content-center h-100 text-dark fw-bold">
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Say Everything With Your smile</h3>
+            <p>I am a friendly dentist with 12 years experience..</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

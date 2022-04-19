@@ -11,7 +11,7 @@ const Footer = () => {
             <h3>Tooth Doctor</h3>
           </div>
           <div>
-            <p>Follow us on:</p>
+            <p>Follow me on:</p>
             <div className="d-flex justify-content-center">
               <i className="fab fa-facebook fa-2x me-4"></i>
               <i className="fab fa-twitter fa-2x me-4"></i>

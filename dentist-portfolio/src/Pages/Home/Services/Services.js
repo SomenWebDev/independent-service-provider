@@ -14,7 +14,6 @@ const Services = () => {
     <div className="mt-5">
       <Container>
         <h1 className="text-dark mt-2">
-          {" "}
           <span>-----</span>WHAT I OFFER<span>-----</span>
         </h1>
         <Row xs={12} md={6} lg={3} className="g-3">

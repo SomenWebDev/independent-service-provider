@@ -1,9 +1,13 @@
 import React from "react";
 import { Button, Card, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Service = ({ service }) => {
   const { name, price, description, img } = service;
+  const navigate = useNavigate();
+  const handleCheckOut = (name) => {
+    navigate(`/checkout/${name}`);
+  };
   return (
     <div className="mt-5">
       <Col>
@@ -19,7 +23,11 @@ const Service = ({ service }) => {
               <p>Price: ${price}</p>
             </Card.Text>
             <Link to="/checkout">
-              <Button variant="primary" className="w-100">
+              <Button
+                onClick={() => handleCheckOut(name)}
+                variant="primary"
+                className="w-100"
+              >
                 Check Out
               </Button>
             </Link>
