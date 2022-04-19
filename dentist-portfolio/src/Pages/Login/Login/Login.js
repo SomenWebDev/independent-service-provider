@@ -43,10 +43,11 @@ const Login = () => {
     return <p>loading....</p>;
   }
   if (error) {
-    console.log(error.message);
+    toast(error.message);
   }
   return (
     <div className="container w-50 mt-5">
+      <h1 className="text-primary">Please Login</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Control

@@ -38,7 +38,8 @@ const Register = () => {
     toast(error.message);
   }
   return (
-    <div>
+    <div className="container w-50">
+      <h1 className="text-primary">Please Register</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>

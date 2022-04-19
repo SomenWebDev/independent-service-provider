@@ -12,6 +12,7 @@ import About from "./Pages/About/About";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Blog from "./Pages/Blog/Blog";
 import Reviews from "./Pages/Reviews/Reviews";
+import NotFound from "./Pages/Shared/NotFound/NotFound";
 
 function App() {
   return (
@@ -34,7 +35,9 @@ function App() {
           }
         ></Route>
         <Route path="/reviews" element={<Reviews></Reviews>}></Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
+
       <Footer></Footer>
     </div>
   );
