@@ -2,21 +2,20 @@ import { FcGoogle } from "react-icons/fc";
 import React from "react";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 import auth from "./../../../firebase.init";
 
 const SocialLogin = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const navigate = useNavigate();
-  let errorElement;
+
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
 
   if (error) {
-    errorElement = (
-      <div>
-        <p className="text-danger">Error: {error.message}</p>
-      </div>
-    );
+    toast("Approve Your Google account");
   }
   if (user) {
     navigate(from, { replace: true });
@@ -28,7 +27,7 @@ const SocialLogin = () => {
         <p className="mt-2 px-2">Or</p>
         <div style={{ height: "1px" }} className="bg-primary w-50"></div>
       </div>
-      {errorElement}
+
       <div>
         <button
           onClick={() => signInWithGoogle()}
@@ -37,6 +36,7 @@ const SocialLogin = () => {
           <FcGoogle className="mt-1 mx-2" /> Continue With Google
         </button>
       </div>
+      <ToastContainer />
     </div>
   );
 };
