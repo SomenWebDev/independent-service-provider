@@ -1,5 +1,4 @@
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FcGoogle } from "react-icons/fc";
 import React from "react";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -33,9 +32,9 @@ const SocialLogin = () => {
       <div>
         <button
           onClick={() => signInWithGoogle()}
-          className="btn btn-info w-50 d-flex mx-auto px-5"
+          className="btn btn-secondary w-50 d-flex mx-auto px-5"
         >
-          Continue With Google
+          <FcGoogle className="mt-1 mx-2" /> Continue With Google
         </button>
       </div>
     </div>

@@ -8,6 +8,8 @@ const CheckOut = () => {
   return (
     <div>
       <div className="container w-25 mx-auto border border-dark rounded my-3 p-5">
+        <h1 className="fs-5">Choose Item:{checkoutName}</h1>
+        <p>To contact with us please fill up the form.</p>
         <Form>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Control type="text" placeholder="Your Name" />

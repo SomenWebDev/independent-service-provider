@@ -3,7 +3,7 @@ import { Button, Card, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const Service = ({ service }) => {
-  const { id, name, price, description, img } = service;
+  const { name, price, description, img } = service;
   const navigate = useNavigate();
   const handleCheckOut = (name) => {
     navigate(`/checkout/${name}`);
@@ -26,7 +26,7 @@ const Service = ({ service }) => {
 
             <Button
               onClick={() => handleCheckOut(name)}
-              variant="primary"
+              variant="warning"
               className="w-100"
             >
               Check Out
