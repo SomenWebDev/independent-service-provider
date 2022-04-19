@@ -1,12 +1,13 @@
 import React from "react";
 import { Button, Card, Col } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Service = ({ service }) => {
-  const { name, price, description, img } = service;
+  const { id, name, price, description, img } = service;
   const navigate = useNavigate();
   const handleCheckOut = (name) => {
     navigate(`/checkout/${name}`);
+    // <Link to="/home" />;
   };
   return (
     <div className="mt-5">
@@ -22,15 +23,14 @@ const Service = ({ service }) => {
               <p className="pt-2">{description}</p>
               <p>Price: ${price}</p>
             </Card.Text>
-            <Link to="/checkout">
-              <Button
-                onClick={() => handleCheckOut(name)}
-                variant="primary"
-                className="w-100"
-              >
-                Check Out
-              </Button>
-            </Link>
+
+            <Button
+              onClick={() => handleCheckOut(name)}
+              variant="primary"
+              className="w-100"
+            >
+              Check Out
+            </Button>
           </Card.Body>
         </Card>
       </Col>

@@ -13,6 +13,7 @@ import Footer from "./Pages/Shared/Footer/Footer";
 import Blog from "./Pages/Blog/Blog";
 import Reviews from "./Pages/Reviews/Reviews";
 import NotFound from "./Pages/Shared/NotFound/NotFound";
+// import ServiceDetail from "./Pages/ServiceDetail/ServiceDetail";
 
 function App() {
   return (
@@ -25,9 +26,13 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/about" element={<About></About>}></Route>
-        <Route path="/blog" element={<Blog></Blog>}></Route>T
+        <Route path="/blog" element={<Blog></Blog>}></Route>
+        {/* <Route
+          path="/service/:serviceId"
+          element={<checkout></checkout>}
+        ></Route> */}
         <Route
-          path="/checkout/:nameId"
+          path="/checkout/:checkoutName"
           element={
             <RequireAuth>
               <CheckOut></CheckOut>
